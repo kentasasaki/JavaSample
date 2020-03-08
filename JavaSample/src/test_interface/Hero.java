@@ -17,17 +17,6 @@ public class Hero extends Character {
 	}
 
 	@Override
-	public int attack() {
-
-		return this.attackPower;
-	}
-
-	@Override
-	public void damage(int damage) {
-		this.hp -= damage;
-	}
-
-	@Override
 	public void run() {
 		System.out.println(this.name + "は逃げ出しました");
 

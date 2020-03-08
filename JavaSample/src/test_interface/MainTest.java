@@ -1,45 +1,64 @@
 package test_interface;
 
 public class MainTest {
+	//メソッド　戦闘をする
+	public static int attackTurn(Character attacker, Character target) {
+		int damege = attacker.getattacPower();
+		System.out.println(attacker.getname() + "の攻撃。" + target.getname() + "へ" + damege + "のダメージ！");
+		return damege;
+	}
+
+	//HPの確認
+	public static boolean lifeCheck(Character target, Character winner) {
+		if (target.gethp() <= 0) {
+			System.out.println(target.getname() + "のHPが無くなりました。");
+			System.out.println(winner.getname() + "の勝利です！");
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	//戦闘結果を表示
+	public static void viewHp(Character hero, Character goblin) {
+		System.out.println(hero.getname() + ":HP=" + hero.gethp());
+		System.out.println(goblin.getname() + ":HP=" + goblin.gethp());
+
+	}
 
 	public static void main(String[] args) {
 		//インスタンス化
 		Character hero = new Hero("勇者", 250, 20);
 		Character goblin = new Goblin("ゴブリン");
-		//ダメージ
 		int damage = 0;
-		//戦闘中のフラグ
-		boolean battle = true;
-		//ターン数
-		int battleTurn = 0;
-		Character character[] = { hero, goblin, null };
-		System.out.println(character[0].name + ":HP=" + character[0].hp + ":Ap=" + character[0].attackPower);
-		System.out.println(character[1].name + ":HP=" + character[1].hp + ":Ap=" + character[1].attackPower);
+		boolean gameEnd = true;
+		System.out.println(hero.getname() + ":HP=" + hero.gethp() + ":Ap=" + hero.getattacPower());
+		System.out.println(goblin.getname() + ":HP=" + goblin.gethp() + ":Ap=" + goblin.getattacPower());
 
-		//戦闘開始
-		while (battle) {
-			battleTurn++;
-			System.out.println("【" + battleTurn + "ターン目】");
-
-			character[0] = hero;
-			character[1] = goblin;
-			character[2] = null;
-			for (int j = 0; j < 2; j++) {
-				damage = character[0].attack();
-				character[1].damage(damage);
-				System.out.println(character[0].name + "の攻撃。" + character[1].name + "へ" + damage + "のダメージ！");
-				//攻撃対象のHPがゼロの以下で戦闘終了
-				if (character[1].hp <= 0) {
-					battle = false;
-					break;
-				}
-
-				character[2] = character[0];
-				character[0] = character[1];
-				character[1] = character[2];
+		while (gameEnd) {
+			//戦闘　勇者の攻撃
+			damage = (attackTurn(hero, goblin));
+			//戦闘　ダメージ
+			goblin.damage(damage);
+			//HP確認
+			if (lifeCheck(goblin, hero)) {
+				break;
 			}
+
+			//戦闘　ゴブリンの攻撃
+			damage = (attackTurn(goblin, hero));
+			//戦闘　ダメージ
+			hero.damage(damage);
+			//HP確認
+			if (lifeCheck(hero, goblin)) {
+				break;
+			}
+
+			//勇者　ゴブリンのHP表示
+			viewHp(hero, goblin);
 		}
-		System.out.println("戦闘終了。" + character[0].name + "の勝利です！");
+
 	}
 
 }
