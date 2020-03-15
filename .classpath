@@ -2,5 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="JavaSample/src"/>
+	<classpathentry kind="src" path="RPG"/>
+	<classpathentry kind="src" path="Regexp"/>
+	<classpathentry kind="src" path="TextFormating"/>
 	<classpathentry kind="output" path="JavaSample/bin"/>
 </classpath>
