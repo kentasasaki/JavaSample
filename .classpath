@@ -6,5 +6,6 @@
 	<classpathentry kind="src" path="Regexp"/>
 	<classpathentry kind="src" path="TextFormating"/>
 	<classpathentry kind="src" path="Date"/>
+	<classpathentry kind="src" path="ArrayList"/>
 	<classpathentry kind="output" path="JavaSample/bin"/>
 </classpath>
