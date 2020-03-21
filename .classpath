@@ -7,5 +7,7 @@
 	<classpathentry kind="src" path="TextFormating"/>
 	<classpathentry kind="src" path="Date"/>
 	<classpathentry kind="src" path="ArrayList"/>
+	<classpathentry kind="src" path="SetClass"/>
+	<classpathentry kind="src" path="Map"/>
 	<classpathentry kind="output" path="JavaSample/bin"/>
 </classpath>
