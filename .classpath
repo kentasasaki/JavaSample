@@ -10,5 +10,7 @@
 	<classpathentry kind="src" path="SetClass"/>
 	<classpathentry kind="src" path="Map"/>
 	<classpathentry kind="src" path="Error"/>
+	<classpathentry kind="src" path="Stream"/>
+	<classpathentry kind="src" path="Servlet"/>
 	<classpathentry kind="output" path="JavaSample/bin"/>
 </classpath>
